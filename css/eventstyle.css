@@ -1,0 +1,177 @@
+@font-face {
+	font-family: 'Gotham-Book';
+	src: 
+		url('../fonts/Gotham-Book.ttf') format('truetype');
+	}
+@font-face {
+	font-family: 'Gotham-Bold';
+	src: 
+		url('../fonts/Gotham-Bold.ttf') format('truetype');
+	}	
+
+body {
+	font-family: 'Gotham-Book', sans-serif;
+	//background-color:#E6E7E8; //background color per Design doc;
+}
+
+.header-wrapper {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	height: 60px;
+	font-family: "Gotham-Book", sans-serif;
+	color: white;
+}
+
+.header-nav-bar {
+	width: 100%;
+	background-color: #FD9C45;
+}
+
+.months-header {
+	background: #FD9C45;
+	padding-left: 10px;
+	color: white;
+}
+
+.main-header-image img{
+	width: auto;
+	padding: 12px;
+	margin: 0px;
+	height: 60px;
+	font-family: "Gotham-Book", sans-serif;
+}
+
+.group-sub-header {
+	height: 25px; 
+	width: 100%; 
+	background-color: #74BDC4;
+	color: white;
+}
+
+.daysheader, .location-header, .category-header {
+	background: #FD9C45;
+	color: white;
+	padding-left: 10px;
+}
+
+.full-width-bar {
+	background: #FD9C45;
+	height: 36px;
+	width: 100%;
+}
+
+.choose-community {
+	display: block;
+	width: 100%;
+}
+
+.groupcards {
+	color: white;
+}
+
+.groupcards md-card-title-text h4 {
+	height: 3em;
+	padding-left: 12px;
+	font-size: 24px;
+	padding-top: 18px;
+	padding-bottom: 10px;
+}
+.groupcards:nth-child(even) {
+	background-color: #FD9C45;
+}
+
+.groupcards:nth-child(odd) {
+	background-color: #062631;
+}
+
+md-card-content {
+	padding: 0 !important;
+}
+.inside-card {
+	background-color: #BBBABD;
+	width: 100%;
+	padding:5px;
+	margin:0;
+}
+
+.locations {
+	padding: 10px;
+	font-family: 'Gotham-Bold', sans-serif;
+}
+
+.days, .weekends, .cats {
+	font-family:'Gotham-Bold', sans-serif;
+	font-weight: bold; 
+	padding: 10px;
+}
+
+.get-involved {
+	padding-left: 40px;
+	padding-right: 40px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.get-involved p {
+	font-size: 20px;
+}
+
+strong {
+	color: black;
+}
+
+.inside-card h4, .inside-card p {
+	color: black;
+}
+
+i {
+	padding-left: 8px;
+}
+
+#sign-up {
+	background-color: #FD9C45;
+}
+
+.yourgroups {
+	font-family: "Gotham-Bold", sans-serif;
+}
+
+#reset-button {
+	background-color: #333;
+	color: #fafafa;
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-bottom: 8px;
+}
+
+md-button {
+	font-family: 'Gotham-Bold', sans-serif;
+}
+
+#header_search {
+	color: rgb(102, 102, 102);
+	font-family: "Gotham-Book", sans-serif;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: #FD9C45;
+    border-width: 2px;
+    padding: 12px;
+}
+
+
+.md-button {
+	padding: 0px !important;
+}
+
+
+footer {
+	background-color: #062530;
+	height: auto;
+}
+
+footer p {
+	color: white;
+	padding: 8px;
+	margin-left: 18px;
+}
