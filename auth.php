@@ -9,7 +9,7 @@
 
 	// Parsing connection string
 	foreach ($_SERVER as $key => $value) {
-		if (strpos($key, "MYSQLCONNSTR_") !== 0) {
+		if (strpos($key, "MYSQL_CONN_STRING") !== 0) {
 			continue;
 		}
 		
