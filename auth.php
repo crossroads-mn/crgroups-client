@@ -8,11 +8,15 @@
     $DB_SCHEMA = "";
 
 	// Parsing connection string
-	foreach ($_SERVER as $key => $value) {
-		if (strpos($key, "MYSQL_CONN_STRING") !== 0) {
-			continue;
-		}
-		
+	$MYSQL_CONN_STRING = "";
+	if ($_SERVER["MYSQL_CONN_STRING"] !== 0) {
+		$MYSQL_CONN_STRING = $_SERVER["MYSQL_CONN_STRING"];
+	}
+	else if ($_ENV["MYSQL_CONN_STRING"] !== 0) {
+		$MYSQL_CONN_STRING = $_ENV["MYSQL_CONN_STRING"];
+	}
+
+	if ($MYSQL_CONN_STRING !==0 ) {
 		$DB_ADDRESS = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
 		$DB_SCHEMA = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
 		$DB_USER = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
