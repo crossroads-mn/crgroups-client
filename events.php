@@ -10,7 +10,7 @@
 	            <img style="margin-left: 15px; margin-top: 10px; height:40px; margin-bottom: 2px"  src="/app/img/Back Arrow.png" alt="Crossroads Church" ng-click="selected='dashboard'" class="header-logo">
 	        </a>-->
 
-	        <a href="http://cr.life"><img style="text-align: center; padding: 8px; background-color: #FD9C45" src="/app/img/cr_logo_white_horiz.png" height="60px;"></a>
+	        <a href="http://cr.life"><img style="text-align: center; padding: 8px; background-color: #FD9C45" src="/img/cr_logo_white_horiz.png" height="60px;"></a>
 	</div>
     	<h1 align="center">CROSSROADS GROUPS</h1>
 </div>
@@ -36,7 +36,7 @@
 </style>
 
 <div layout="column" width="100%">
-	<img class="choose-community" src="/app/img/Events_Page.jpg">
+	<img class="choose-community" src="/img/Events_Page.jpg">
 	<div class="full-width-bar"></div>
 </div>
 

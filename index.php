@@ -48,7 +48,7 @@
 
 	<div layout-wrap layout="row" class="header-nav-bar">
 		<div class="main-header-image">
-			<img src="/app/img/cr_logo_white_horiz.png">
+			<img src="/img/cr_logo_white_horiz.png">
 		</div>
 	</div>
 
