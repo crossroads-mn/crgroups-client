@@ -142,7 +142,7 @@ Our prayer is that God will use your Small Group to help you discover and deepen
 				<h4><strong>Email Address:</strong> \\\groups[group_selected].EMAIL\\\</h4>
 				<h4><strong>Location Where Group Meets?</strong> \\\groups[group_selected].LOCATION\\\</h4>
 				<h4><strong>Cost?</strong> \\\groups[group_selected].COST\\\</h4>
-				<h4><strong>Is Childcare Provided? </strong>\\\groups[group_selected].CARE_PROVIDED\\\</h4>
+				<h4><strong>Is Childcare Provided? </strong>\\\groups[group_selected].CARE_PROVIDED | yesorno_filter\\\</h4>
 				
 				<md-button id="sign-up" layout-align="center center" class="md-primary md-raised" ng-href="\\\groups[group_selected].GROUP_LINK\\\" target="_blank">SIGN-UP</md-button>
 			</div>

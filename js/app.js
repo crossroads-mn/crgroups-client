@@ -359,3 +359,10 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 	$scope.this_year = new Date().getFullYear().toString();
 
 });
+
+app.filter('yesorno_filter', function() {
+	return function(value) {
+		if (value) return 'Yes';
+		return 'No';
+	}
+})
