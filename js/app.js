@@ -362,7 +362,7 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 
 app.filter('yesorno_filter', function() {
 	return function(value) {
-		if (value) return 'Yes';
+		if ((value) && value > 0) return 'Yes';
 		return 'No';
 	}
 })
