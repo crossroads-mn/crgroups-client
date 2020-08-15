@@ -104,6 +104,11 @@ Our prayer is that God will use your Small Group to help you discover and deepen
 		</md-card>
 	</div>
 	<div layout="row">
+		<md-card id="\\\cat\\\" ng-click="select_cat(cat)" ng-repeat="cat in group_cat_mid">
+			<h4 class="cats" >\\\cat\\\</h4>
+		</md-card>
+	</div>
+	<div layout="row">
 		<md-card id="\\\c\\\" ng-click="select_cat(c)" ng-repeat="c in group_cat_bottom">
 			<h4 class="cats">\\\c\\\</h4>
 		</md-card>

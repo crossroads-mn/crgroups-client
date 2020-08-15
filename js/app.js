@@ -264,8 +264,9 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 
 	$scope.categories_top = ["KIDS", "YOUTH", "WORSHIP"];
 	$scope.categories_bottom = ["ADULTS", "MISSION", "YOUNG ADULTS"];
-	$scope.group_cat_top = ["COMMUNITY", "CARE"];
-	$scope.group_cat_bottom = ["CONTENT", "CAUSE"];
+	$scope.group_cat_top = ["YOUNG ADULT", "WOMEN"];
+	$scope.group_cat_mid = ["MEN", "COUPLES"];
+	$scope.group_cat_bottom = ["SUPPORT", "INTEREST"];
 	$scope.days_of_week = [{
 		"name":"MON",
 		"value":"Monday"
