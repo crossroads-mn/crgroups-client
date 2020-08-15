@@ -128,7 +128,7 @@ Our prayer is that God will use your Small Group to help you discover and deepen
 			YOUR GROUPS
 		</md-card-title-text>
 	</md-card>
-	<md-card ng-repeat="group in groups | orderBy:'TITLE' | filter:query | filter:{MEET_DAY: selected_day.value} | filter:{CAMPUS: selected_location.name} | filter:{GROUP_TYPE: selected_category} | filter:{ACTIVE:'1'}" class="groupcards">
+	<md-card ng-repeat="group in groups | orderBy:'TITLE' | filter:query | filter:{ACTIVE:'1'} | filter:{MEET_DAY: selected_day.value} | filter:{CAMPUS: selected_location.name} | filter:group_category_filter " class="groupcards">
 		<md-card-title-text>
 			<h4 ng-if="groups.indexOf(group)!=group_selected || !is_group_selected"><i ng-click="expand_group(group)" class="fa fa-plus" aria-hidden="true"></i>&nbsp;\\\group.TITLE\\\</h4>
 			<h4 ng-if="is_group_selected && groups.indexOf(group)==group_selected"><i ng-click="expand_group(group)" class="fa fa-minus" aria-hidden="true"></i>&nbsp;\\\group.TITLE\\\</h4>
