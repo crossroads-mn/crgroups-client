@@ -359,6 +359,14 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 
 	$scope.this_year = new Date().getFullYear().toString();
 
+	$scope.group_category_filter = function(grp) {
+		if ($scope.selected_category == "") { 
+			return true;
+		}
+		else {
+			return grp.GROUP_TYPE.toLowerCase() == $scope.selected_category.toLowerCase();
+		}
+	}
 });
 
 app.filter('yesorno_filter', function() {
