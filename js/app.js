@@ -37,6 +37,7 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 	$scope.selected_day = "";
 	$scope.selected_month = "";
 	$scope.selected_category = "";
+	$scope.selected_type = "";
 	$scope.selected_location = "";
 	$scope.query = "";
 
@@ -153,10 +154,11 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 
 	$scope.reset_query = function() {
 		$scope.selected_day = "";
-	$scope.selected_category = "";
-	$scope.selected_location = "";
-	$scope.selected_month = "";
-	$scope.query = "";
+		$scope.selected_category = "";
+		$scope.selected_type = "";
+		$scope.selected_location = "";
+		$scope.selected_month = "";
+		$scope.query = "";
 	}
 
 	$scope.select_group = function(grnum) {
@@ -174,6 +176,7 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 
 	$scope.select_day = function(d) {
 		$scope.selected_day = d;
+		console.log(d);
 	}
 
 	$scope.select_month = function(d) {
@@ -182,6 +185,12 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 
 	$scope.select_cat = function(c) {
 		$scope.selected_category = c;
+		console.log(c);
+	}
+
+	$scope.select_type = function(t) {
+		$scope.selected_type = t;
+		console.log(t);
 	}
 
 	$scope.select_location = function(l) {
@@ -227,8 +236,8 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 		$scope.select_event(index);
 	}
 
-	  $scope.goto_page = function(page) {
-  	window.location.href = page;
+	$scope.goto_page = function(page) {
+  		window.location.href = page;
   	}
 
 	$scope.get_groups();
@@ -261,12 +270,82 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 		"value":"offsite"
 	}];
 
+	$scope.event_categories_top = [
+		{
+			"name": "KIDS",
+			"value": "kids"
+		},
+		{ 
+			"name" : "YOUTH", 
+			"value": "youth"
+		},
+		{ 
+			"name" : "WORSHIP", 
+			"value": "worship"
+		}
+	]
 
-	$scope.categories_top = ["KIDS", "YOUTH", "WORSHIP"];
-	$scope.categories_bottom = ["ADULTS", "MISSION", "YOUNG ADULTS"];
-	$scope.group_cat_top = ["YOUNG ADULT", "WOMEN"];
-	$scope.group_cat_mid = ["MEN", "COUPLES"];
-	$scope.group_cat_bottom = ["SUPPORT", "INTEREST"];
+	$scope.event_categories_bottom = [
+		{
+			"name": "ADULTS",
+			"value": "adults"
+		},
+		{ 
+			"name" : "MISSION", 
+			"value": "mission"
+		},
+		{ 
+			"name" : "YOUNG ADULTS", 
+			"value": "youngadults"
+		}
+	]
+
+	$scope.group_cat_top = [
+		{
+			"name": "YOUNG ADULT",
+			"value": "youngadult"
+		},
+		{ 
+			"name" : "WOMEN", 
+			"value": "women"
+		}
+	];
+	$scope.group_cat_mid = [
+		{
+			"name": "MEN",
+			"value": "men"
+		},
+		{ 
+			"name" : "COUPLES", 
+			"value": "couples"
+		}
+	];
+	$scope.group_cat_bottom = [
+		{
+			"name": "SUPPORT",
+			"value": "support"
+		},
+		{ 
+			"name" : "INTEREST", 
+			"value": "interest"
+		}
+	];
+	$scope.group_type_top = [		
+		{
+			"name": "ZOOM",
+			"value": "zoom"
+		},
+		{ 
+			"name" : "OUTDOOR", 
+			"value": "outdoor"
+		}
+	];
+	$scope.group_type_bottom = [
+		{
+			"name": "INSIDE",
+			"value": "inside"
+		}
+	];
 	$scope.days_of_week = [{
 		"name":"MON",
 		"value":"Monday"
@@ -359,12 +438,30 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 
 	$scope.this_year = new Date().getFullYear().toString();
 
+	$scope.event_category_filter = function(evt) {
+		if ($scope.selected_category == "") { 
+			return true;
+		}
+		else {
+			return evt.CATEGORY.toLowerCase().replace(/\s+/g, '') == $scope.selected_category.value.toLowerCase();
+		}
+	}
+
 	$scope.group_category_filter = function(grp) {
 		if ($scope.selected_category == "") { 
 			return true;
 		}
 		else {
-			return grp.GROUP_TYPE.toLowerCase() == $scope.selected_category.toLowerCase();
+			return grp.CATEGORY.toLowerCase().replace(/\s+/g, '') == $scope.selected_category.value.toLowerCase();
+		}
+	}
+
+	$scope.group_type_filter = function(grp) {
+		if ($scope.selected_type == "") { 
+			return true;
+		}
+		else {
+			return grp.GROUP_TYPE.toLowerCase().replace(/\s+/g, '') == $scope.selected_type.value.toLowerCase();
 		}
 	}
 });

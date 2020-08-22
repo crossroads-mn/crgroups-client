@@ -12,7 +12,7 @@
 
 	        <a href="http://cr.life"><img style="text-align: center; padding: 8px; background-color: #FD9C45" src="/img/cr_logo_white_horiz.png" height="60px;"></a>
 	</div>
-    	<h1 align="center">CROSSROADS GROUPS</h1>
+    	<h1 align="center">CROSSROADS EVENTS</h1>
 </div>
 </header>
 
@@ -27,7 +27,7 @@
 	color: white;
 }
 
-#\\\selected_category\\\ {
+#\\\selected_category.value\\\ {
 	background: #FD9C45;
 	color: white;
 }
@@ -110,13 +110,13 @@
 
 <div layout="column">
 	<div layout="row">
-		<md-card id="\\\cat\\\" ng-click="select_cat(cat)" ng-repeat="cat in categories_top">
-			<h4 class="cats" >\\\cat\\\</h4>
+		<md-card id="\\\c.value\\\" ng-click="select_cat(c)" ng-repeat="c in event_categories_top">
+			<h4 class="cats" >\\\c.name\\\</h4>
 		</md-card>
 	</div>
 	<div layout="row">
-		<md-card id="\\\c\\\" ng-click="select_cat(c)" ng-repeat="c in categories_bottom">
-			<h4 class="cats">\\\c\\\</h4>
+		<md-card id="\\\c.value\\\" ng-click="select_cat(c)" ng-repeat="c in event_categories_bottom">
+			<h4 class="cats">\\\c.name\\\</h4>
 		</md-card>
 	</div>
 </div>
@@ -134,7 +134,7 @@
 			Upcoming Events
 		</md-card-title-text>
 	</md-card>
-	<md-card ng-repeat="event in events | orderBy: 'SYS_EVENT_DATE' | filter:query | filter:{SYS_EVENT_DATE: selected_month.name} | filter:{LOCATION: selected_location.name} | filter:{CATEGORY: selected_category} | filter:{ACTIVE: '1'}" class="eventcards">
+	<md-card ng-repeat="event in events | filter:{ACTIVE: '1'} | orderBy: 'SYS_EVENT_DATE' | filter:query | filter:{SYS_EVENT_DATE: selected_month.name} | filter:{LOCATION: selected_location.name} | filter:event_category_filter" class="eventcards">
 		<md-card-title-text>
 			<h4 ng-if="events.indexOf(event)!=event_selected || !is_event_selected"><i ng-click="expand_event(event)" class="fa fa-plus" aria-hidden="true"></i>&nbsp;\\\event.TITLE\\\ - \\\event.SYS_EVENT_DATE_STRING\\\</h4>
 			<h4 ng-if="is_event_selected && events.indexOf(event)==event_selected"><i ng-click="expand_event(event)" class="fa fa-minus" aria-hidden="true"></i>&nbsp;\\\event.TITLE\\\</h4>

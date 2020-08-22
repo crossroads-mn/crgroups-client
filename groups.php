@@ -26,7 +26,12 @@
 	color: white;
 }
 
-#\\\selected_category\\\ {
+#\\\selected_category.value\\\ {
+	background: #062631;
+	color: white;
+}
+
+#\\\selected_type.value\\\ {
 	background: #062631;
 	color: white;
 }
@@ -99,18 +104,35 @@ Our prayer is that God will use your Small Group to help you discover and deepen
 
 <div layout="column">
 	<div layout="row">
-		<md-card id="\\\cat\\\" ng-click="select_cat(cat)" ng-repeat="cat in group_cat_top">
-			<h4 class="cats" >\\\cat\\\</h4>
+		<md-card id="\\\c.value\\\" ng-click="select_cat(c)" ng-repeat="c in group_cat_top">
+			<h4 class="cats" >\\\c.name\\\</h4>
 		</md-card>
 	</div>
 	<div layout="row">
-		<md-card id="\\\cat\\\" ng-click="select_cat(cat)" ng-repeat="cat in group_cat_mid">
-			<h4 class="cats" >\\\cat\\\</h4>
+		<md-card id="\\\c.value\\\" ng-click="select_cat(c)" ng-repeat="c in group_cat_mid">
+			<h4 class="cats" >\\\c.name\\\</h4>
 		</md-card>
 	</div>
 	<div layout="row">
-		<md-card id="\\\c\\\" ng-click="select_cat(c)" ng-repeat="c in group_cat_bottom">
-			<h4 class="cats">\\\c\\\</h4>
+		<md-card id="\\\c.value\\\" ng-click="select_cat(c)" ng-repeat="c in group_cat_bottom">
+			<h4 class="cats">\\\c.name\\\</h4>
+		</md-card>
+	</div>
+</div>
+
+<md-card class="category-header">
+	<md-card-title-text><h2>MEETING TYPE</h2></md-card-title-text>
+</md-card>
+
+<div layout="column">
+	<div layout="row">
+		<md-card id="\\\t.value\\\" ng-click="select_type(t)" ng-repeat="t in group_type_top">
+			<h4 class="types" >\\\t.name\\\</h4>
+		</md-card>
+	</div>
+	<div layout="row">
+		<md-card id="\\\t.value\\\" ng-click="select_type(t)" ng-repeat="t in group_type_bottom">
+			<h4 class="types">\\\t.name\\\</h4>
 		</md-card>
 	</div>
 </div>
@@ -128,7 +150,7 @@ Our prayer is that God will use your Small Group to help you discover and deepen
 			YOUR GROUPS
 		</md-card-title-text>
 	</md-card>
-	<md-card ng-repeat="group in groups | orderBy:'TITLE' | filter:query | filter:{ACTIVE:'1'} | filter:{MEET_DAY: selected_day.value} | filter:{CAMPUS: selected_location.name} | filter:group_category_filter " class="groupcards">
+	<md-card ng-repeat="group in groups | orderBy:'TITLE' | filter:query | filter:{ACTIVE:'1'} | filter:{MEET_DAY: selected_day.value} | filter:{CAMPUS: selected_location.name} | filter:group_category_filter | filter:group_type_filter" class="groupcards">
 		<md-card-title-text>
 			<h4 ng-if="groups.indexOf(group)!=group_selected || !is_group_selected"><i ng-click="expand_group(group)" class="fa fa-plus" aria-hidden="true"></i>&nbsp;\\\group.TITLE\\\</h4>
 			<h4 ng-if="is_group_selected && groups.indexOf(group)==group_selected"><i ng-click="expand_group(group)" class="fa fa-minus" aria-hidden="true"></i>&nbsp;\\\group.TITLE\\\</h4>
