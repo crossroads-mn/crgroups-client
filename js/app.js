@@ -336,8 +336,8 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 			"value": "zoom"
 		},
 		{ 
-			"name" : "OUTDOOR", 
-			"value": "outdoor"
+			"name" : "OUTSIDE", 
+			"value": "outside"
 		}
 	];
 	$scope.group_type_bottom = [
