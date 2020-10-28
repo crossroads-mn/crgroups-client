@@ -1,4 +1,15 @@
-# $ docker build -t crgroups-client-nginx:latest .
-FROM nginx:1.19.3
+## DEVELOPMENT ##
+FROM nginx:1.19.3 as dev
 
-# $ docker run -d -p 8000:80 -v:${PWD}/nginx/conf.d:/etc/nginx/conf.d/ -v ${PWD}:/var/www/ crgroups-client-nginx:latest
+## PRODUCTION ##
+FROM nginx:1.19.3 as prod
+
+RUN rm /etc/nginx/conf.d/default.conf
+COPY ./nginx/conf.d /etc/nginx/conf.d
+COPY ./index.html /var/www/index.html
+COPY *.php /var/www/
+COPY ./css/ /var/www/css/
+COPY ./fonts/ /var/www/fonts/
+COPY ./img/ /var/www/img/
+COPY ./js/ /var/www/js/
+
