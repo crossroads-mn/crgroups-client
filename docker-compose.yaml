@@ -1,0 +1,24 @@
+version: '3'
+
+networks:
+    crgroups-client-network:
+
+services:
+    crgroups-client-nginx:
+        build: ./nginx/
+        tty: true
+        volumes:
+            - ./:/var/www/
+            - ./nginx/conf.d:/etc/nginx/conf.d
+        networks:
+            - crgroups-client-network
+        ports:
+            - 8080:80
+    crgroups-client-php:
+        build: ./
+        tty: true
+        volumes:
+            - ./:/var/www/
+        networks:
+            - crgroups-client-network
+
