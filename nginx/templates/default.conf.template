@@ -5,8 +5,7 @@ server {
 
     location ~ \.php$ {
         try_files $uri =404;
-        # fastcgi_pass crgroups-client-php:9000;
-        fastcgi_pass localhost:9000;   # localhost to work in k8s side-car deployment
+        fastcgi_pass ${PHP_FPM_HOST};
         include fastcgi_params;
         fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
     }

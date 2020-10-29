@@ -4,8 +4,8 @@ FROM nginx:1.19.3 as dev
 ## PRODUCTION ##
 FROM nginx:1.19.3 as prod
 
-RUN rm /etc/nginx/conf.d/default.conf
-COPY ./nginx/conf.d /etc/nginx/conf.d
+ENV PHP_FPM_HOST=localhost:9000
+COPY ./nginx/templates/ /etc/nginx/templates
 COPY ./index.html /var/www/index.html
 COPY *.php /var/www/
 COPY ./css/ /var/www/css/

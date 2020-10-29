@@ -5,17 +5,23 @@ networks:
 
 services:
     crgroups-client-nginx:
-        build: ./nginx/
+        build:
+            context: ./nginx/
+            target: dev
         tty: true
+        environment:
+            PHP_FPM_HOST: crgroups-client-php:9000
         volumes:
             - ./:/var/www/
-            - ./nginx/conf.d:/etc/nginx/conf.d
+            - ./nginx/templates:/etc/nginx/templates
         networks:
             - crgroups-client-network
         ports:
             - 8080:80
     crgroups-client-php:
-        build: ./
+        build:
+            context: ./
+            target: dev
         tty: true
         volumes:
             - ./:/var/www/

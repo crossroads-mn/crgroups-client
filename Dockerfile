@@ -6,7 +6,6 @@ RUN pecl install xdebug-2.9.8 \
 
 ### PRODUCTION ###
 FROM php:7.4-fpm as prod
-COPY ./nginx/conf.d /etc/nginx/conf.d
 COPY ./index.html /var/www/index.html
 COPY *.php /var/www/
 COPY ./css/ /var/www/css/
