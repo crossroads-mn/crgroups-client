@@ -15,7 +15,30 @@ Verify the app if working at http://localhost:8080
 docker-compose down
 ```
 
-## Production Deployment
-WIP
+## Production Local Kubernetes Deployment
+Use `prod-k8s-local.sh` to build prod-like containers and deploy onto Kubernetes
 
-Use `build-prod-images.sh` to build prod images of the containers
+```
+prod-k8s-local.sh
+```
+
+### Troubleshooting
+Validate that the k8s service `crgroups-client` has an External IP and Endpoints being serviced
+
+```
+$ kubectl describe service crgroups-client
+Name:                     crgroups-client
+Namespace:                default
+Labels:                   <none>
+Annotations:              Selector:  app=crgroups-client
+Type:                     LoadBalancer
+IP:                       10.96.49.253
+LoadBalancer Ingress:     localhost          <--- valid loadbalancer host
+Port:                     http  8080/TCP
+TargetPort:               80/TCP
+NodePort:                 http  32659/TCP
+Endpoints:                10.1.0.36:80   <--- valid pod endpoint
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+```
