@@ -23,6 +23,8 @@ services:
             context: ./
             target: dev
         tty: true
+        environment: 
+            DEVELOPMENT: 1
         volumes:
             - ./:/var/www/
         networks:
