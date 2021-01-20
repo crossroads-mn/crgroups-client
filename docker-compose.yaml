@@ -24,7 +24,8 @@ services:
             target: dev
         tty: true
         environment: 
-            DEVELOPMENT: 1
+            DEVELOPMENT: ${DEVELOPMENT}
+            MYSQL_CONN_STRING: ${MYSQL_CONN_STRING}
         volumes:
             - ./:/var/www/
         networks:
