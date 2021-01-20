@@ -4,9 +4,11 @@ The contributing docs are still a work in progress.  However, if you are familia
 ## Docker Dev Setup
 Credit to https://www.pascallandau.com/blog/php-php-fpm-and-nginx-on-docker-in-windows-10/ for the instructions to work from
 
+Create an `.env.dev` environment file (use `.env.dev.example` as a template).  Set the `MYSQL_CONN_STRING` value accordingly.
+
 Startup the app and nginx containers with a docker shared network
 ```
-docker-compose up
+docker-compose --env-file ./.env.dev up
 ```
 
 Verify the app if working at http://localhost:8080
