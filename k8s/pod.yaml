@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: crgroups-client
+    labels:
+        app: crgroups-client
+spec:
+    containers:
+        - image: crgroups-client-nginx:1.0.0
+          name: nginx
+          ports:
+            - containerPort: 80
+          resources: {}
+        - image: crgroups-client-php:1.0.0
+          name: php
+          ports:
+            - containerPort: 9000
