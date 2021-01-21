@@ -3,8 +3,10 @@ FROM php:7.4-fpm as dev
 
 RUN pecl install xdebug-2.9.8 \
     && docker-php-ext-enable xdebug
+RUN docker-php-ext-install mysqli \
+    && docker-php-ext-enable mysqli
 
-### PRODUCTION ###
+### PRODUCTION (still a WIP) ###
 FROM php:7.4-fpm as prod
 COPY ./index.html /var/www/index.html
 COPY *.php /var/www/
