@@ -37,6 +37,7 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 	$scope.selected_day = "";
 	$scope.selected_month = "";
 	$scope.selected_category = "";
+	$scope.selected_topic = "";
 	$scope.selected_type = "";
 	$scope.selected_location = "";
 	$scope.query = "";
@@ -155,6 +156,7 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 	$scope.reset_query = function() {
 		$scope.selected_day = "";
 		$scope.selected_category = "";
+		$scope.selected_topic = "";
 		$scope.selected_type = "";
 		$scope.selected_location = "";
 		$scope.selected_month = "";
@@ -190,6 +192,11 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 
 	$scope.select_type = function(t) {
 		$scope.selected_type = t;
+		console.log(t);
+	}
+
+	$scope.select_topic = function(t) {
+		$scope.selected_topic = t;
 		console.log(t);
 	}
 
@@ -320,14 +327,40 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 			"value": "couples"
 		}
 	];
-	$scope.group_cat_bottom = [
+	$scope.group_topic_one = [		
 		{
-			"name": "SUPPORT",
-			"value": "support"
+			"name": "CARE",
+			"value": "care"
 		},
 		{ 
-			"name" : "INTEREST", 
-			"value": "interest"
+			"name" : "SERMON REWIND", 
+			"value": "sermon"
+		}
+	];
+	$scope.group_topic_two = [		
+		{
+			"name": "PROMISE PRINCIPLE",
+			"value": "promise"
+		},
+		{ 
+			"name" : "THE GRACE OF GOD", 
+			"value": "grace"
+		}
+	];
+	$scope.group_topic_three = [		
+		{
+			"name": "KILL THE SPIDER",
+			"value": "spider"
+		},
+		{ 
+			"name" : "NOT A FAN", 
+			"value": "fan"
+		}
+	];
+	$scope.group_topic_four = [		
+		{
+			"name": "BE THE BRIDGE",
+			"value": "bridge"
 		}
 	];
 	$scope.group_type_top = [		
@@ -464,11 +497,46 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 			return grp.GROUP_TYPE.toLowerCase().replace(/\s+/g, '') == $scope.selected_type.value.toLowerCase();
 		}
 	}
+
+	$scope.group_topic_filter = function(grp) {
+		if ($scope.selected_topic == "") {
+			return true;
+		}
+		else {
+			return grp.TOPIC.toLowerCase().replace(/\s+/g, '') == $scope.selected_topic.value.toLowerCase();
+		}
+	}
 });
 
 app.filter('yesorno_filter', function() {
 	return function(value) {
 		if ((value) && value > 0) return 'Yes';
 		return 'No';
+	}
+})
+
+app.filter('topic_friendlyname_filter', function() {
+	return function(value) {
+		if (!value) {
+			return '';
+		}
+		switch (value.toLowerCase().trim()) {
+			case 'care':
+				return 'Care';
+			case 'sermon':
+				return 'Sermon Rewind';
+			case 'promise':
+				return 'Promise Principle';
+			case 'grace':
+				return 'The Grace of God';
+			case 'spider':
+				return 'Kill the Spider';
+			case 'fan':
+				return 'Not a Fan';
+			case 'bridge':
+				return 'Be the Bridge';
+			default:
+				return '';
+		}
 	}
 })
