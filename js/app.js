@@ -34,9 +34,11 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 	$scope.group_selected = -1;
 	$scope.event_selected = -1;
 	$scope.headercolor = "#74BDC4";
+		
 	$scope.selected_day = "";
 	$scope.selected_month = "";
 	$scope.selected_category = "";
+	$scope.selected_topic = ($scope.urlparms.hasOwnProperty('Topic') ? getQueryTopicFromParam($scope.urlparms.Topic) : '');
 	$scope.selected_type = "";
 	$scope.selected_location = "";
 	$scope.query = "";
@@ -155,6 +157,7 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 	$scope.reset_query = function() {
 		$scope.selected_day = "";
 		$scope.selected_category = "";
+		$scope.selected_topic = "";
 		$scope.selected_type = "";
 		$scope.selected_location = "";
 		$scope.selected_month = "";
@@ -190,6 +193,11 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 
 	$scope.select_type = function(t) {
 		$scope.selected_type = t;
+		console.log(t);
+	}
+
+	$scope.select_topic = function(t) {
+		$scope.selected_topic = t;
 		console.log(t);
 	}
 
@@ -320,16 +328,10 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 			"value": "couples"
 		}
 	];
-	$scope.group_cat_bottom = [
-		{
-			"name": "SUPPORT",
-			"value": "support"
-		},
-		{ 
-			"name" : "INTEREST", 
-			"value": "interest"
-		}
-	];
+	$scope.group_topic_one = [group_topics[0], group_topics[1]];
+	$scope.group_topic_two = [group_topics[2], group_topics[3]];
+	$scope.group_topic_three = [group_topics[4], group_topics[5]];
+	$scope.group_topic_four = [group_topics[6]];
 	$scope.group_type_top = [		
 		{
 			"name": "ZOOM",
@@ -464,11 +466,46 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 			return grp.GROUP_TYPE.toLowerCase().replace(/\s+/g, '') == $scope.selected_type.value.toLowerCase();
 		}
 	}
+
+	$scope.group_topic_filter = function(grp) {
+		if ($scope.selected_topic == "") {
+			return true;
+		}
+		else {
+			return grp.TOPIC.toLowerCase().replace(/\s+/g, '') == $scope.selected_topic.value.toLowerCase();
+		}
+	}
 });
 
 app.filter('yesorno_filter', function() {
 	return function(value) {
 		if ((value) && value > 0) return 'Yes';
 		return 'No';
+	}
+})
+
+app.filter('topic_friendlyname_filter', function() {
+	return function(value) {
+		if (!value) {
+			return '';
+		}
+		switch (value.toLowerCase().trim()) {
+			case 'care':
+				return 'Care';
+			case 'sermon':
+				return 'Sermon Rewind';
+			case 'promise':
+				return 'Promise Principle';
+			case 'grace':
+				return 'The Grace of God';
+			case 'spider':
+				return 'Kill the Spider';
+			case 'fan':
+				return 'Not a Fan';
+			case 'bridge':
+				return 'Be the Bridge';
+			default:
+				return '';
+		}
 	}
 })

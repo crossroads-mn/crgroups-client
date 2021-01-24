@@ -96,7 +96,7 @@ md-card-content {
 	font-family: 'Gotham-Bold', sans-serif;
 }
 
-.days, .weekends, .cats, .types {
+.days, .weekends, .cats, .types, .topics {
 	font-family:'Gotham-Bold', sans-serif;
 	font-weight: bold; 
 	padding: 10px;

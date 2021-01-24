@@ -35,6 +35,12 @@
 	background: #062631;
 	color: white;
 }
+
+#\\\selected_topic.value\\\ {
+	background: #062631;
+	color: white;
+}
+
 </style>
 <div layout="column" width="100%">
 	<img class="choose-community" src="/img/GroupSplash_3x.png">
@@ -107,6 +113,33 @@ Our prayer is that God will use your Group to help you form new friendships and 
 </div>
 
 <md-card class="category-header">
+	<md-card-title-text><h2>TOPIC</h2></md-card-title-text>
+</md-card>
+
+<div layout="column">
+	<div layout="row">
+		<md-card id="\\\t.value\\\" ng-click="select_topic(t)" ng-repeat="t in group_topic_one">
+			<h4 class="topics" >\\\t.name\\\</h4>
+		</md-card>
+	</div>
+	<div layout="row">
+		<md-card id="\\\t.value\\\" ng-click="select_topic(t)" ng-repeat="t in group_topic_two">
+			<h4 class="topics">\\\t.name\\\</h4>
+		</md-card>
+	</div>
+	<div layout="row">
+		<md-card id="\\\t.value\\\" ng-click="select_topic(t)" ng-repeat="t in group_topic_three">
+			<h4 class="topics">\\\t.name\\\</h4>
+		</md-card>
+	</div>
+	<div layout="row">
+		<md-card id="\\\t.value\\\" ng-click="select_topic(t)" ng-repeat="t in group_topic_four">
+			<h4 class="topics">\\\t.name\\\</h4>
+		</md-card>
+	</div>
+</div>
+
+<md-card class="category-header">
 	<md-card-title-text><h2>CATEGORY</h2></md-card-title-text>
 </md-card>
 
@@ -119,11 +152,6 @@ Our prayer is that God will use your Group to help you form new friendships and 
 	<div layout="row">
 		<md-card id="\\\c.value\\\" ng-click="select_cat(c)" ng-repeat="c in group_cat_mid">
 			<h4 class="cats" >\\\c.name\\\</h4>
-		</md-card>
-	</div>
-	<div layout="row">
-		<md-card id="\\\c.value\\\" ng-click="select_cat(c)" ng-repeat="c in group_cat_bottom">
-			<h4 class="cats">\\\c.name\\\</h4>
 		</md-card>
 	</div>
 </div>
@@ -158,7 +186,7 @@ Our prayer is that God will use your Group to help you form new friendships and 
 			YOUR GROUPS
 		</md-card-title-text>
 	</md-card>
-	<md-card ng-repeat="group in groups | orderBy:'TITLE' | filter:query | filter:{ACTIVE:'1'} | filter:{MEET_DAY: selected_day.value} | filter:{CAMPUS: selected_location.name} | filter:group_category_filter | filter:group_type_filter" class="groupcards">
+	<md-card ng-repeat="group in groups | orderBy:'TITLE' | filter:query | filter:{ACTIVE:'1'} | filter:{MEET_DAY: selected_day.value} | filter:{CAMPUS: selected_location.name} | filter:group_category_filter | filter:group_type_filter | filter:group_topic_filter" class="groupcards">
 		<md-card-title-text>
 			<h4 ng-if="groups.indexOf(group)!=group_selected || !is_group_selected"><i ng-click="expand_group(group)" class="fa fa-plus" aria-hidden="true"></i>&nbsp;\\\group.TITLE\\\</h4>
 			<h4 ng-if="is_group_selected && groups.indexOf(group)==group_selected"><i ng-click="expand_group(group)" class="fa fa-minus" aria-hidden="true"></i>&nbsp;\\\group.TITLE\\\</h4>
@@ -169,6 +197,7 @@ Our prayer is that God will use your Group to help you form new friendships and 
 				<p>
 			\\\groups[group_selected].DESCRIPTION\\\
 				</p>
+				<h4><strong>Topic</strong> \\\groups[group_selected].TOPIC | topic_friendlyname_filter\\\</h4>
 				<h4><strong>Who Should Attend?</strong> \\\groups[group_selected].TARGET_AUDIENCE\\\</h4>
 				<h4><strong>Day the Group Meets?</strong> \\\groups[group_selected].MEET_DAY\\\</h4>
 				<h4><strong>Number of Weeks?</strong> \\\groups[group_selected].DURATION\\\</h4>
