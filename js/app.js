@@ -34,10 +34,11 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 	$scope.group_selected = -1;
 	$scope.event_selected = -1;
 	$scope.headercolor = "#74BDC4";
+		
 	$scope.selected_day = "";
 	$scope.selected_month = "";
 	$scope.selected_category = "";
-	$scope.selected_topic = "";
+	$scope.selected_topic = ($scope.urlparms.hasOwnProperty('Topic') ? getQueryTopicFromParam($scope.urlparms.Topic) : '');
 	$scope.selected_type = "";
 	$scope.selected_location = "";
 	$scope.query = "";
@@ -327,42 +328,10 @@ app.controller('uctrl', function uctrl($scope, $interval, $http, $location, $mdD
 			"value": "couples"
 		}
 	];
-	$scope.group_topic_one = [		
-		{
-			"name": "CARE",
-			"value": "care"
-		},
-		{ 
-			"name" : "SERMON REWIND", 
-			"value": "sermon"
-		}
-	];
-	$scope.group_topic_two = [		
-		{
-			"name": "PROMISE PRINCIPLE",
-			"value": "promise"
-		},
-		{ 
-			"name" : "THE GRACE OF GOD", 
-			"value": "grace"
-		}
-	];
-	$scope.group_topic_three = [		
-		{
-			"name": "KILL THE SPIDER",
-			"value": "spider"
-		},
-		{ 
-			"name" : "NOT A FAN", 
-			"value": "fan"
-		}
-	];
-	$scope.group_topic_four = [		
-		{
-			"name": "BE THE BRIDGE",
-			"value": "bridge"
-		}
-	];
+	$scope.group_topic_one = [group_topics[0], group_topics[1]];
+	$scope.group_topic_two = [group_topics[2], group_topics[3]];
+	$scope.group_topic_three = [group_topics[4], group_topics[5]];
+	$scope.group_topic_four = [group_topics[6]];
 	$scope.group_type_top = [		
 		{
 			"name": "ZOOM",

@@ -7,6 +7,50 @@ var moving = false;
 //map.addEventListener("mousedown", initialClick, false);
 var sortingOrder = 'name'; //default sort
 
+const group_topics = [
+  {
+    "name": "CARE",
+    "value": "care"
+  },
+  { 
+    "name" : "SERMON REWIND", 
+    "value": "sermon"
+  },
+  {
+    "name": "PROMISE PRINCIPLE",
+    "value": "promise"
+  },
+  { 
+    "name" : "THE GRACE OF GOD", 
+    "value": "grace"
+  },
+  {
+    "name": "KILL THE SPIDER",
+    "value": "spider"
+  },
+  { 
+    "name" : "NOT A FAN", 
+    "value": "fan"
+  },
+  {
+    "name": "BE THE BRIDGE",
+    "value": "bridge"
+  }
+]
+
+function getQueryTopicFromParam(value) {
+  if (!value) { 
+    return '';
+  }
+
+  for (grp of group_topics) {
+    if (grp.value == value.toLowerCase().trim()) {
+      return grp;
+    }
+  }
+
+  return '';
+}
 
 function move(e){
   var newX = e.clientX - 10;
