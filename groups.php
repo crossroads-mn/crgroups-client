@@ -52,19 +52,12 @@
 <div class="get-involved" layout="column" width="100%">
 	<h3>Welcome to the Groups registration page!</h3>
 <p>
-We believe that circles are better than rows because we know that God has made each of us to be in community. One of the best steps you can take in your faith is to get plugged into a group.
+We can’t wait for you to plug into a group! Here are a few tips for navigating this page to find the right group for you:
 </p>
-<p>
-So, take your next step!
-</p>
-<p>
-Our prayer is that God will use your Group to help you form new friendships and deepen your relationship with Jesus.
-</p>
-<h3>How to navigate this page</h3>
 <ul>
-	<li><p>To learn more about each group click the plus sign. You can only expand one group at a time but read through as many you’d like!</p></li>
+	<li><p>To learn more about each group, click the plus sign.</p></li>
 	<li><p>On the left there are filters: days, locations, category, and meeting type.</p></li>
-	<li><p>Feel free to use one or multiple of these filters to easily narrow down your options OR take some time and scroll through all of the options.</p></li>
+	<li><p>Feel free to use one or multiple of these filters to easily narrow down your options or take some time to scroll through all of the options.</p></li>
 	<li><p>If you use the filter option and want to remove them, simply click the “reset” button on the bottom left.</p></li>
 </ul>
 <br/>
